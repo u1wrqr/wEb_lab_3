@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог товарів — Поєнко.dev</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/storage.js"></script>
+  <script defer src="js/render.js"></script>
+  <script defer src="js/events.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+  <div class="page">
+    <header class="header">
+      <a class="header__logo" href="index.html">Поєнко<span class="header__accent">.dev</span></a>
+      <nav class="header__nav" aria-label="Головна навігація">
+        <a class="header__link header__link--active" href="index.html" aria-current="page">Каталог</a>
+        <a class="header__link" href="tasks.html">Задачі</a>
+        <a class="header__link" href="strict.html">Строгий режим</a>
+      </nav>
+    </header>
+
+    <main class="main" id="main">
+      <h1 class="main__title">Каталог товарів</h1>
+      <p class="main__lead">Додавайте позиції, змінюйте ціну й кількість на місці, відбирайте за назвою та стежте за загальною вартістю. Дані зберігаються в localStorage браузера.</p>
+
+      <section class="panel" aria-labelledby="add-title">
+        <h2 class="panel__title" id="add-title">Нова позиція</h2>
+        <form class="form" id="add-form" novalidate>
+          <div class="form__field">
+            <label class="form__label" for="add-name">Назва</label>
+            <input class="form__input" id="add-name" name="name" data-field="name" type="text" required minlength="2" maxlength="60" autocomplete="off" aria-describedby="add-name-error">
+            <p class="form__error" id="add-name-error" role="alert"></p>
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="add-price">Ціна, ₴</label>
+            <input class="form__input" id="add-price" name="price" data-field="price" type="number" required min="0.01" max="1000000" step="0.01" inputmode="decimal" aria-describedby="add-price-error">
+            <p class="form__error" id="add-price-error" role="alert"></p>
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="add-qty">Кількість</label>
+            <input class="form__input" id="add-qty" name="qty" data-field="qty" type="number" required min="0" max="100000" step="1" inputmode="numeric" aria-describedby="add-qty-error">
+            <p class="form__error" id="add-qty-error" role="alert"></p>
+          </div>
+          <div class="form__actions">
+            <button class="button button--primary" type="submit">Додати</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="list-title">
+        <h2 class="panel__title" id="list-title">Позиції каталогу</h2>
+
+        <ul class="stats" aria-label="Підсумкові показники">
+          <li class="stats__item"><span class="stats__label">Позицій (показано / усього)</span><span class="stats__value" id="stat-count">0 / 0</span></li>
+          <li class="stats__item"><span class="stats__label">Загальна вартість</span><span class="stats__value" id="stat-total">0.00 ₴</span></li>
+          <li class="stats__item"><span class="stats__label">Вартість за фільтром</span><span class="stats__value" id="stat-filtered">0.00 ₴</span></li>
+          <li class="stats__item"><span class="stats__label">Вибрано (шт. позицій / сума)</span><span class="stats__value" id="stat-selected">0 / 0.00 ₴</span></li>
+        </ul>
+
+        <div class="toolbar">
+          <div class="toolbar__field">
+            <label class="form__label" for="search">Пошук за назвою</label>
+            <input class="form__input" id="search" type="search" autocomplete="off" placeholder="Почніть вводити назву">
+          </div>
+          <div class="toolbar__field">
+            <label class="form__label" for="sort">Впорядкування</label>
+            <select class="form__input" id="sort">
+              <option value="added">За порядком додавання</option>
+              <option value="name">Назва: А → Я</option>
+              <option value="price-asc">Ціна: за зростанням</option>
+              <option value="price-desc">Ціна: за спаданням</option>
+              <option value="total-desc">Вартість позиції: за спаданням</option>
+            </select>
+          </div>
+          <button class="button button--danger" id="clear-storage" type="button">Очистити сховище</button>
+        </div>
+
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+        <ul class="list" id="list"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 Поєнко О.Ю. Черкаси, Україна</span>
+      <a class="footer__link" href="mailto:hello@example.com">hello@example.com</a>
+    </footer>
+  </div>
+</body>
+</html>

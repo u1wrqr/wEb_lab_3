@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Власні реалізації — Поєнко.dev</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/tasks/lab-check.js"></script>
+  <script defer src="js/tasks/custom-map.js"></script>
+  <script defer src="js/tasks/custom-filter.js"></script>
+  <script defer src="js/tasks/custom-reduce.js"></script>
+  <script defer src="js/tasks/custom-find.js"></script>
+  <script defer src="js/tasks/custom-flat.js"></script>
+  <script defer src="js/tasks/custom-deep-clone.js"></script>
+  <script defer src="js/tasks/custom-debounce-throttle.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+  <div class="page">
+    <header class="header">
+      <a class="header__logo" href="index.html">Поєнко<span class="header__accent">.dev</span></a>
+      <nav class="header__nav" aria-label="Головна навігація">
+        <a class="header__link" href="index.html">Каталог</a>
+        <a class="header__link header__link--active" href="tasks.html" aria-current="page">Задачі</a>
+        <a class="header__link" href="strict.html">Строгий режим</a>
+      </nav>
+    </header>
+
+    <main class="main" id="main">
+      <h1 class="main__title">Власні реалізації вбудованих можливостей</h1>
+      <p class="main__lead">Відкрийте консоль браузера (F12). Кожен файл у js/tasks виконує серію перевірок console.assert: у разі збою в консолі з’являється повідомлення, а лічильник нижче показує загальний результат.</p>
+      <ul class="panel__list">
+        <li>власні map, filter, reduce, find;</li>
+        <li>власні flat(depth) і deepClone;</li>
+        <li>debounce і throttle з підрахунком викликів.</li>
+      </ul>
+
+      <section class="panel" aria-labelledby="result-title">
+        <h2 class="panel__title" id="result-title">Результат перевірок</h2>
+        <p class="report" id="tasks-summary" role="status">Перевірки виконуються…</p>
+        <progress class="progress" id="tasks-progress" value="0" max="1" aria-label="Частка пройдених перевірок"></progress>
+        <ul class="panel__list" id="tasks-failures"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 Поєнко О.Ю. Черкаси, Україна</span>
+      <a class="footer__link" href="mailto:hello@example.com">hello@example.com</a>
+    </footer>
+  </div>
+</body>
+</html>

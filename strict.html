@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Строгий режим — Поєнко.dev</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/strict-on.js"></script>
+  <script defer src="js/strict-off.js"></script>
+  <script defer src="js/strict-view.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+  <div class="page">
+    <header class="header">
+      <a class="header__logo" href="index.html">Поєнко<span class="header__accent">.dev</span></a>
+      <nav class="header__nav" aria-label="Головна навігація">
+        <a class="header__link" href="index.html">Каталог</a>
+        <a class="header__link" href="tasks.html">Задачі</a>
+        <a class="header__link header__link--active" href="strict.html" aria-current="page">Строгий режим</a>
+      </nav>
+    </header>
+
+    <main class="main" id="main">
+      <h1 class="main__title">Строгий і нестрогий режими</h1>
+      <p class="main__lead">Два класичні сценарії виконують однакові фрагменти: js/strict-on.js з директивою "use strict", js/strict-off.js — без неї. Результати виводяться нижче та в консоль.</p>
+
+      <section class="panel" aria-labelledby="runtime-title">
+        <h2 class="panel__title" id="runtime-title">Помилки виконання</h2>
+        <div class="table-wrap"><table class="table" id="runtime-table"></table></div>
+      </section>
+
+      <section class="panel" aria-labelledby="parse-title">
+        <h2 class="panel__title" id="parse-title">Помилки розбору (new Function у try…catch)</h2>
+        <div class="table-wrap"><table class="table" id="parse-table"></table></div>
+        <p class="panel__text">Помилку розбору не можна перехопити в тому самому файлі: сценарій із такою конструкцією в тексті не завантажився б узагалі. Тому фрагмент передається рядком конструктору Function.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 Поєнко О.Ю. Черкаси, Україна</span>
+      <a class="footer__link" href="mailto:hello@example.com">hello@example.com</a>
+    </footer>
+  </div>
+</body>
+</html>
